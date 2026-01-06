@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LIGHT_H
+#define LIGHT_H
+
 #include "Mesh.h"
 #include <cmath>
 #include <iostream>
@@ -19,3 +21,4 @@ private:
     Vertex m_lightVertex;
 };
 
+#endif // LIGHT_H

@@ -13,6 +13,7 @@ Settings::Settings(int argc, char** argv)
     , m_meshRotationYPerFrame(0.04f)
     , m_meshRotationZPerFrame(0.0f)
     , m_frameDuration(100000)
+    , m_light({ 5.0f,-5.0f,2.0f })
     , m_path("test.txt")
 {
     _ParseArguments(argc, argv);
