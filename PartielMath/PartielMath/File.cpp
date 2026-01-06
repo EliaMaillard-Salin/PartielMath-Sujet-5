@@ -40,10 +40,10 @@ std::vector<Vertex> File::LoadFileImage()
 {
 	std::vector<Vertex> result;
 
+	std::string line;
 	int x = 0;
 	int y = 0;
 	int z = 0;
-	std::string line;
 
 	// # = commentary
 	// l = newLayer
@@ -56,18 +56,18 @@ std::vector<Vertex> File::LoadFileImage()
 		if (line[0] == 'l')
 		{ 
 			z++;
-			y = 0;
+			y = -14;
 			continue;
 		}
 
 		x = 0;
+
 		for (int i = 0; i < line.size(); ++i)
 		{
 			Vertex v;
 			v.x = x;
 			v.y = y;
 			v.z = z;
-			v.value = line[i];
 			if (line[i] != ' ') result.push_back(v);
 			x++;
 		}

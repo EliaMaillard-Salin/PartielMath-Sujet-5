@@ -1,6 +1,3 @@
-#ifndef SETTINGS_H
-#define SETTINGS_H
-
 class Settings
 {
 public:
@@ -12,37 +9,33 @@ public:
     char GetScreenMeshProjection() const { return m_screenMeshProjection; }
     int GetMeshResolution() const { return m_meshResolution; }
     float GetMeshPosition() const { return m_meshPosition; }
-    float GetMeshRotationXPerFrame() const { return m_meshRotationXPerFrame; }
-    float GetMeshRotationYPerFrame() const { return m_meshRotationYPerFrame; }
-    float GetMeshRotationZPerFrame() const { return m_meshRotationZPerFrame; }
-    int GetFrameDuration() const { return m_frameDuration; }
-    float GetLightDirectionX() const { return m_light.lx; }
-    float GetLightDirectionY() const { return m_light.ly; }
-    float GetLightDirectionZ() const { return m_light.lz; }
+    float GetFrameDuration() const { return m_frameDuration; }
+    float GetMeshRotationXPerAngle() const { return m_meshRotationXAngle; }
+    float GetMeshRotationYPerAngle() const { return m_meshRotationYAngle; }
+    float GetMeshRotationZPerAngle() const { return m_meshRotationZAngle; }
+    float GetLightXDir() const { return m_lightXDir; }
+    float GetLightYDir() const { return m_lightYDir; }
+    float GetLightZDir() const { return m_lightZDir; }
 
 private:
     void _ParseArguments(int argc, char** argv);
 
 private:
-    struct LightDir
-    {
-        float lx;
-        float ly;
-        float lz;
-    };
     int m_screenWidth;
     int m_screenHeight;
+    
     char m_screenBackground;
     float m_screenPosition;
     char m_screenMeshProjection;
     int m_meshResolution;
     float m_meshPosition;
-    float m_meshRotationXPerFrame;
-    float m_meshRotationYPerFrame;
-    float m_meshRotationZPerFrame;
-    int m_frameDuration;
-    LightDir m_light;
+    float m_frameDuration; // in microseconds
+    
+    float m_meshRotationXAngle;
+    float m_meshRotationYAngle;
+    float m_meshRotationZAngle;
 
+    float m_lightXDir;
+    float m_lightYDir;
+    float m_lightZDir;
 };
-
-#endif //SETTINGS_H

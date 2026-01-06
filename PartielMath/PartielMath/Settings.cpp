@@ -1,25 +1,26 @@
 #include "Settings.h"
 #include <string>
 
-Settings::Settings(int argc, char** argv)
-    : m_screenWidth(100)
-    , m_screenHeight(50)
-    , m_screenBackground(' ')
-    , m_screenMeshProjection('X')
-    , m_screenPosition(3.33f)
-    , m_meshResolution(32)
-    , m_meshPosition(5.f)
-    , m_meshRotationXPerFrame(0.02f)
-    , m_meshRotationYPerFrame(0.04f)
-    , m_meshRotationZPerFrame(0.0f)
-    , m_frameDuration(100000)
+Settings::Settings(int argc, char** argv) : 
+    m_screenWidth(100),
+    m_screenHeight(50), 
+    m_screenBackground(' '), 
+    m_screenMeshProjection('X'), 
+    m_screenPosition(3.33f), 
+    m_meshResolution(32), 
+    m_meshPosition(5.f), 
+    m_meshRotationXAngle(0.02f),
+    m_frameDuration(100000),
+    m_meshRotationYAngle(0.04f),
+    m_meshRotationZAngle(0.0f)
 {
     _ParseArguments(argc, argv);
 }
 
 void Settings::_ParseArguments(int argc, char** argv)
 {
-    for (int i = 1; i < argc; i++)
+    // Elegant solution from @T.Rosselet
+    for (int i = 1; i < argc; i++) //i starts at 1 because command line arguments start with argv[1] (argv[0] is the name of the exe)
     {
         std::string arg = argv[i];
         if (arg == "-w" && i + 1 < argc)
@@ -59,37 +60,38 @@ void Settings::_ParseArguments(int argc, char** argv)
         }
         else if (arg == "-x" && i + 1 < argc)
         {
-            m_meshRotationXPerFrame = std::atof(argv[i + 1]);
-            i++;
-        }
-        else if (arg == "-y" && i + 1 < argc)
-        {
-            m_meshRotationYPerFrame = std::atof(argv[i + 1]);
-            i++;
-        }
-        else if (arg == "-z" && i + 1 < argc)
-        {
-            m_meshRotationZPerFrame = std::atof(argv[i + 1]);
+            m_meshRotationXAngle = std::atof(argv[i + 1]);
             i++;
         }
         else if (arg == "-f" && i + 1 < argc)
         {
-            m_frameDuration = std::atoi(argv[i + 1]);
+            m_frameDuration = std::atof(argv[i + 1]);
             i++;
         }
+        else if (arg == "-y" && i + 1 < argc)
+        {
+            m_meshRotationYAngle = std::atof(argv[i + 1]);
+            i++;
+        }
+        else if (arg == "-z" && i + 1 < argc)
+        {
+            m_meshRotationZAngle = std::atof(argv[i + 1]);
+            i++;
+        }
+        // Light
         else if (arg == "-lx" && i + 1 < argc)
         {
-            m_light.lx = std::atoi(argv[i + 1]);
+            m_lightXDir = std::atof(argv[i + 1]);
             i++;
         }
         else if (arg == "-ly" && i + 1 < argc)
         {
-            m_light.ly = std::atoi(argv[i + 1]);
+            m_lightYDir = std::atof(argv[i + 1]);
             i++;
         }
         else if (arg == "-lz" && i + 1 < argc)
         {
-            m_light.lz = std::atoi(argv[i + 1]);
+            m_lightZDir = std::atof(argv[i + 1]);
             i++;
         }
     }
