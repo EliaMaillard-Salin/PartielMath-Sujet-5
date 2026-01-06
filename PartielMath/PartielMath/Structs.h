@@ -1,8 +1,11 @@
-#pragma once
+#ifndef STRUCT_H
+#define STRUCT_H
 
 enum Axis {
 	X, Y, Z
 };
+
+class Light;
 
 struct Vertex
 {
@@ -10,12 +13,17 @@ struct Vertex
 	float y;
 	float z;
 
-	float nx;
-	float ny;
-	float nz;
+	struct // normal
+	{
+		float x;
+		float y;
+		float z;
+	} n;
+
 
 	char value;
 	void Rotate(float angle, Axis axis);
-	//float ComputeIllumination(Light const& light) const;
+	float ComputeIllumination(Light const& light) const;
 };
 
+#endif // #ifndef SCREEN_H
