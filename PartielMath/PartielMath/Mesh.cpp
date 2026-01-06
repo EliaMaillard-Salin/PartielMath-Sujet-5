@@ -13,7 +13,7 @@ void Mesh::Debug()
     for (int i = 0; i < m_vertices.size(); i++)
     {
         std::cout << "Coords : { X: " << std::round(m_vertices[i].x) << ";Y: " << std::round(m_vertices[i].y) << ";Z: " << std::round(m_vertices[i].z) << " }";
-        std::cout << "\t Normals : { NX : " << m_vertices[i].nx << "; NY : " << m_vertices[i].ny << "; NZ : " << m_vertices[i].nz << " }" << std::endl;
+        std::cout << "\t Normals : { NX : " << m_vertices[i].n.x << "; NY : " << m_vertices[i].n.y << "; NZ : " << m_vertices[i].n.z << " }" << std::endl;
         std::cout << "\t Value : " << m_vertices[i].value << std::endl;
     }
 }

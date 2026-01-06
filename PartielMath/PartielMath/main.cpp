@@ -7,6 +7,7 @@
 #include "Screen.h"
 #include "Mesh.h"
 #include "File.h"
+#include "Light.h"
 
 
 
@@ -31,19 +32,22 @@
 int main(int argc, char** argv)
 {
     Settings settings(argc, argv);
+
+
     Screen screen(settings);
     File file(settings.GetPath());
     Mesh mesh(file.LoadFileImage());
-    //mesh.Debug();
     mesh.Move(-30, -10, 0);
-    screen.Display(mesh);
+    Light light(settings);
+
+
     while (true)
     {
         //mesh.Rotate(settings.GetMeshRotationXPerFrame(), Axis::X);
         mesh.Rotate(settings.GetMeshRotationXPerFrame(), Axis::Y);
         //mesh.Rotate(settings.GetMeshRotationXPerFrame(), Axis::Z);
 
-        screen.Display(mesh);
+        screen.Display(mesh, light);
 
         std::this_thread::sleep_for(std::chrono::microseconds(settings.GetFrameDuration() / 5));
     }

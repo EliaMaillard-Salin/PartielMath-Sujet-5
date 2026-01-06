@@ -3,6 +3,7 @@
 #include "Screen.h"
 #include "Settings.h"
 #include "Mesh.h"
+#include "Light.h"
 
 Screen::Screen(Settings const& settings)
     : m_width(settings.GetScreenWidth())
@@ -33,14 +34,14 @@ void Screen::Display() const
     }
 }
 
-void Screen::Display(Mesh const& mesh)
+void Screen::Display(Mesh const& mesh, Light const& _light)
 {
     std::fill(m_pixels.begin(), m_pixels.end(), m_background);
-    _ProjectMesh(mesh);
+    _ProjectMesh(mesh,_light);
     Display();
 }
 
-void Screen::_ProjectMesh(Mesh const& mesh)
+void Screen::_ProjectMesh(Mesh const& mesh, Light const& _light)
 {
     for (Vertex vertex : mesh.GetVertices())
     {
@@ -48,9 +49,20 @@ void Screen::_ProjectMesh(Mesh const& mesh)
         int u = std::round(vertex.x);
         int v = std::round(vertex.y);
         float ooz = 1.f / vertex.z;
+
         if (_IsVertexInScreen(u, v))
         {
-            m_pixels[v * m_width + u] = m_meshProjection;
+            float L = vertex.ComputeIllumination(_light);
+            
+            if (L > 0.0f)
+            {
+                m_pixels[v * m_width + u] = 'G';
+            }
+            else
+            {
+                m_pixels[v * m_width + u] = 'C';
+            }
+            //m_pixels[v * m_width + u] = m_meshProjection;
         }
     }
 }

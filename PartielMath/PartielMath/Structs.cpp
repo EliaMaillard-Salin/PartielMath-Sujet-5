@@ -1,4 +1,5 @@
 #include "Structs.h"
+#include "Light.h"
 #include <iostream>
 #include <cmath>
 
@@ -31,4 +32,13 @@ void Vertex::Rotate(float angle, Axis axis)
     default:
         break;
     }
+}
+
+float Vertex::ComputeIllumination(Light const& light) const
+{
+    return (
+        n.x * light.GetNormalizedLight().n.x +
+        n.y * light.GetNormalizedLight().n.y +
+        n.z * light.GetNormalizedLight().n.z
+        );
 }
