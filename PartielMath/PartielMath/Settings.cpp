@@ -13,6 +13,7 @@ Settings::Settings(int argc, char** argv)
     , m_meshRotationYPerFrame(0.04f)
     , m_meshRotationZPerFrame(0.0f)
     , m_frameDuration(100000)
+    , m_path("test.txt")
 {
     _ParseArguments(argc, argv);
 }
@@ -90,6 +91,11 @@ void Settings::_ParseArguments(int argc, char** argv)
         else if (arg == "-lz" && i + 1 < argc)
         {
             m_light.lz = std::atoi(argv[i + 1]);
+            i++;
+        }
+        else if (arg == "-fp" && i + 1 < argc)
+        {
+            m_path = argv[i + 1];
             i++;
         }
     }

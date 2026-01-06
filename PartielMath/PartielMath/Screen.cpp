@@ -19,8 +19,9 @@ Screen::Screen(Settings const& settings)
 
 void Screen::Display() const
 {
-    std::cout << "\x1b[?25l";
-    std::cout << "\x1b[H";
+    std::cout << "\33[?25l";
+    std::cout << "\33[H";
+    //system("cls");
 
     for (int i = 0; i < m_height; i++)
     {

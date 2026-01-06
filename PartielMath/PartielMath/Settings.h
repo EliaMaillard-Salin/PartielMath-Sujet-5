@@ -1,6 +1,8 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <string>
+
 class Settings
 {
 public:
@@ -19,6 +21,7 @@ public:
     float GetLightDirectionX() const { return m_light.lx; }
     float GetLightDirectionY() const { return m_light.ly; }
     float GetLightDirectionZ() const { return m_light.lz; }
+    std::string GetPath() const { return m_path; }
 
 private:
     void _ParseArguments(int argc, char** argv);
@@ -42,6 +45,7 @@ private:
     float m_meshRotationZPerFrame;
     int m_frameDuration;
     LightDir m_light;
+    std::string m_path;
 
 };
 
