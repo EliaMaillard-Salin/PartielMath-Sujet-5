@@ -11,6 +11,8 @@ Global
 		Debug|x86 = Debug|x86
 		Light|x64 = Light|x64
 		Light|x86 = Light|x86
+		Lighting|x64 = Lighting|x64
+		Lighting|x86 = Lighting|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -23,6 +25,10 @@ Global
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Light|x64.Build.0 = Light|x64
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Light|x86.ActiveCfg = Light|Win32
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Light|x86.Build.0 = Light|Win32
+		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Lighting|x64.ActiveCfg = Lighting|x64
+		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Lighting|x64.Build.0 = Lighting|x64
+		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Lighting|x86.ActiveCfg = Lighting|Win32
+		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Lighting|x86.Build.0 = Lighting|Win32
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Release|x64.ActiveCfg = Release|x64
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Release|x64.Build.0 = Release|x64
 		{7881D680-5E75-4172-A8F9-4D14CAFCF044}.Release|x86.ActiveCfg = Release|Win32
