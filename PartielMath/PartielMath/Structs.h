@@ -1,4 +1,5 @@
-#pragma once
+#ifndef STRUCT_H
+#define STRUCT_H
 
 enum Axis {
 	X, Y, Z
@@ -18,4 +19,6 @@ struct Vertex
 	void Rotate(float angle, Axis axis);
 	//float ComputeIllumination(Light const& light) const;
 };
+
+#endif // !STRUCT_H
 

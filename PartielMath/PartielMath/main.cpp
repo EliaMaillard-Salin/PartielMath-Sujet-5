@@ -30,9 +30,9 @@
 
 int main(int argc, char** argv)
 {
-    File file("test.txt");
     Settings settings(argc, argv);
     Screen screen(settings);
+    File file(settings.GetPath());
     Mesh mesh(file.LoadFileImage());
     //mesh.Debug();
     mesh.Move(-30, -10, 0);
